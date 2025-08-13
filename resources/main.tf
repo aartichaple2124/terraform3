@@ -1,6 +1,6 @@
 
 resource "azurerm_network_interface" "example" {
-  name                = "test-nic"
+  name                = "${var.component}-nic"
   location              = data.azurerm_resource_group.example.location
   resource_group_name   = data.azurerm_resource_group.example.name
 
