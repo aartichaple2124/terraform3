@@ -45,7 +45,7 @@ resource "azurerm_virtual_machine" "main" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "myosdisk1"
+    name              = "${var.component}-osdisk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -59,6 +59,6 @@ resource "azurerm_virtual_machine" "main" {
     disable_password_authentication = false
   }
   tags = {
-    environment = "staging"
+    environment = var.component
   }
 }
